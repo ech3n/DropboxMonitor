@@ -1,0 +1,15 @@
+Use this script if your Dropbox folder is installed on a removable disk.
+
+
+The launch agent watches the /Volumes folder for any changes
+and launches the bash script to start / stop Dropbox
+
+1. Configure the plist file with the volume name of the removable disk.
+2. Install com.ech3n.dropbox-monitor.plist file in ~/Library/LaunchAgents/
+3. Install toggle-dropbox.sh in ~/Users/username/bin/
+
+To load the launch agent:
+    launchctl load ~/Library/LaunchAgents/com.ech3n.dropbox-monitor.plist
+    
+To unload the launch agent:
+    launchctl unload ~/Library/LaunchAgents/com.ech3n.dropbox-monitor.plist
