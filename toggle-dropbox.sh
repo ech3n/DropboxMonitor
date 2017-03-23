@@ -35,10 +35,12 @@ MOUNTPOINT=`diskutil info $VOLUME | grep "Mount Point" | awk '{print $3}'`
 # Is SD Card Mounted
 if [ $MOUNTPOINT ]; then
     # $MOUNTPOINT mounted
-    if [ -z $DROPBOX ]; then
-        # Dropbox Not Running - Start Dropbox
-        open /Applications/Dropbox.app
+    if [ $DROPBOX ]; then
+        # Dropbox is Running - Stop Dropbox
+        killall Dropbox
     fi
+    # Restart Dropbox
+    open /Applications/Dropbox.app
 else
     # $MOUNTPOINT unmounted
     if [ $DROPBOX ]; then
